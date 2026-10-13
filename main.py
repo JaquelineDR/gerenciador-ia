@@ -135,15 +135,15 @@ def main():
 
         if opcao == "1":
             frase = input("\nDigite a tarefa livremente (ex: 'Enviar e-mail para cliente até sexta'): ")
-            print("🤖 Processando com IA via Ollama...")
+            print("Processando com IA via Ollama...")
 
             dados = extrair_tarefa_ia(frase)
 
             if dados and "titulo" in dados and "prazo" in dados:
                 gerenciador.insert_ordered(dados["titulo"], dados["prazo"])
-                print(f"✓ Sucesso! Tarefa '{dados['titulo']}' agendada para {dados['prazo']}.")
+                print(f"Sucesso! Tarefa '{dados['titulo']}' agendada para {dados['prazo']}.")
             else:
-                print("❌ Falha ao extrair dados. Tente digitar de forma mais clara.")
+                print("Falha ao extrair dados. Tente digitar de forma mais clara.")
 
         elif opcao == "2":
             gerenciador.exibir_tarefas()
@@ -151,7 +151,7 @@ def main():
         elif opcao == "3":
             removida = gerenciador.pop_inicio()
             if removida:
-                print(f"\n✓ Tarefa concluída e removida: [{removida.prazo}] {removida.titulo}")
+                print(f"\nTarefa concluída e removida: [{removida.prazo}] {removida.titulo}")
             else:
                 print("\nNenhuma tarefa para concluir.")
 
